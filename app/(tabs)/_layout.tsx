@@ -33,6 +33,12 @@ export default function TabLayout() {
                     title: 'Grupowo',
                 }}
             />
+            <Tabs.Screen
+                name="solo_active/[...route_params]"
+                options={{
+                    href: null
+                }}
+            />
         </Tabs>
     );
 }

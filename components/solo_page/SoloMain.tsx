@@ -2,6 +2,7 @@ import React from "react";
 import {Button, Center, Container, Heading, VStack, Spacer, ScrollView, Box, Icon, IconButton} from "native-base";
 import ChooseActivity from "@/components/solo_page/ChooseActivity";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import {router} from "expo-router";
 
 export default function SoloMain() {
     const [chosenMode, setChosenMode] = React.useState<"casual" | "training" | null>(null);
@@ -31,6 +32,12 @@ export default function SoloMain() {
         setChosenActivity(activity)
     }
 
+    const handleSubmitActivity = () => {
+        if (chosenActivity != null) {
+            router.navigate(`/(tabs)/solo_active/${encodeURI(chosenActivity)}/${Date.now()}`)
+        }
+    }
+
     return (
         <>
             <Center height={"100%"}>
@@ -50,9 +57,14 @@ export default function SoloMain() {
                                 </Box>
                             </VStack>
                             { chosenActivity ? <VStack flexDirection={"row"} justifyContent={"flex-end"}>
-                                <IconButton padding={5} borderRadius={25} icon={<Icon as={Ionicons} name="arrow-forward-outline" size="sm" />} isDisabled={!chosenActivity} />
+                                <IconButton
+                                    padding={5}
+                                    borderRadius={25}
+                                    icon={<Icon as={Ionicons} name="arrow-forward-outline" size="sm" />}
+                                    isDisabled={!chosenActivity}
+                                    onPress={handleSubmitActivity}
+                                />
                             </VStack> : null }
-
                         </>
                         : null }
                 </VStack>
