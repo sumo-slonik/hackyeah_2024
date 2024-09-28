@@ -1,7 +1,10 @@
 import {Text} from "react-native";
+import {UserProfil} from "@/components/custom_components/userProfil";
+import {firstUser} from '@/assets/customData/personalData';
 
 export default function Solo() {
   return (
-    <Text>Solo</Text>
+    // add to proper place
+    <UserProfil user={firstUser}></UserProfil>
   );
 }
