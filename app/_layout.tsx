@@ -42,14 +42,6 @@ export default function RootLayout() {
                             name="(tabs)"
                             options={{ headerShown: false }}
                         />
-                        <Stack.Screen name="Tabs" />
-                        <Stack.Screen
-                            name="pages/user"
-                            options={{
-                                headerShown: false,
-                                headerBackButtonMenuEnabled: true,
-                            }}
-                        />
                         <Stack.Screen name="+not-found" />
                     </Stack>
                 </SafeAreaView>

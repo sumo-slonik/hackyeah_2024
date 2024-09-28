@@ -77,7 +77,7 @@ export default function Group() {
             {/*    enableSwipeMonths*/}
             {/*/>*/}
 
-            <TimelineCalendarScreen />
+            {/*<TimelineCalendarScreen />*/}
             <MapPicker title={'Choose Where You Want To Workout'} />
 
             <Link href="/group/choosePerson" asChild>

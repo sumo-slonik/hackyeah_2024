@@ -35,7 +35,7 @@ export default function TabLayout() {
             />
             <Tabs.Screen name="group/choosePerson" options={{ href: null }} />
             <Tabs.Screen
-                name="user"
+                name="user/index"
                 options={{
                     href: null,
                 }}
