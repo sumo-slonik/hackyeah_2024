@@ -45,6 +45,7 @@ export default function Group() {
             <Button
                 style={{ height: 50, width: 100, margin: 10 }}
                 onPress={() => {}}
+                key={'button' + item.name}
             >
                 {item.name}
             </Button>

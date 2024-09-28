@@ -28,7 +28,7 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="group/index"
+                name="group"
                 options={{
                     title: 'Grupowo',
                 }}
