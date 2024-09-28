@@ -1,5 +1,7 @@
+import {Text} from "react-native";
+
 export default function Solo() {
   return (
-    <span>Solo</span>
+    <Text>Solo</Text>
   );
 }
