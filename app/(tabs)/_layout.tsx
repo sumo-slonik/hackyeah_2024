@@ -15,21 +15,21 @@ export default function TabLayout() {
         headerShown: false,
       }}>
       <Tabs.Screen
-        name="index"
+        name="profile"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+          title: 'Profil'
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="solo"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
+          title: 'Solo'
+        }}
+      />
+      <Tabs.Screen
+        name="group"
+        options={{
+          title: 'Grupowo'
         }}
       />
     </Tabs>
