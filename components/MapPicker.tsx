@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     },
     map: {
         width: Dimensions.get('window').width - 20,
-        height: Dimensions.get('window').height * 0.4,
+        height: Dimensions.get('window').height * 0.6,
         marginBottom: 20,
     },
     sliderContainer: {
