@@ -28,9 +28,9 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="group"
+                name="user"
                 options={{
-                    title: 'Grupowo',
+                    href: null,
                 }}
             />
         </Tabs>
