@@ -9,13 +9,11 @@ import {
     Select,
 } from 'native-base';
 import { useState } from 'react';
-import { Calendar } from 'react-native-calendars';
 import MapPicker from '@/components/MapPicker';
-import Carousel from 'react-native-reanimated-carousel';
-import TimelineCalendarScreen from '@/components/WeekCalendar';
 import Header from '@/components/Header';
 import { Link } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
+import WeekCalendar from '@/components/WeekCalendar';
 
 const { width: viewportWidth } = Dimensions.get('window');
 
@@ -42,7 +40,7 @@ export default function Group() {
         },
     ];
 
-    const renderItem = (item) => {
+    const renderItem = (item: { name: any }) => {
         return (
             <Button
                 style={{ height: 50, width: 100, margin: 10 }}
@@ -65,19 +63,9 @@ export default function Group() {
             <Text style={{ fontSize: 24 }}>
                 Choose When You Want To Workout
             </Text>
-            {/*<Calendar*/}
-            {/*    onDayPress={(day) => setSelectedDate(day.dateString)}*/}
-            {/*    markedDates={{*/}
-            {/*        [selectedDate]: {*/}
-            {/*            selected: true,*/}
-            {/*            marked: true,*/}
-            {/*            selectedColor: 'blue',*/}
-            {/*        },*/}
-            {/*    }}*/}
-            {/*    enableSwipeMonths*/}
-            {/*/>*/}
 
-            {/*<TimelineCalendarScreen />*/}
+            <WeekCalendar />
+
             <MapPicker title={'Choose Where You Want To Workout'} />
 
             <Link href="/group/choosePerson" asChild>
