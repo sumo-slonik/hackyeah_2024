@@ -1,7 +1,9 @@
 import { Radio } from "native-base"
 
 type props = {
-    activityType: "casual" | "training"
+    activityType: "casual" | "training",
+    currentActivity: string | undefined,
+    setCurrentActivity: (activity: string | undefined) => void,
 }
 
 const activities: Record<"casual" | "training", string[]> = {
@@ -35,12 +37,17 @@ const activities: Record<"casual" | "training", string[]> = {
     ]
 }
 
-export default function ChooseActivity({activityType} : props) {
+export default function ChooseActivity({activityType, currentActivity, setCurrentActivity} : props) {
     return (
         <>
-            <Radio.Group name="activtyRadioGroup" space={10}>
-                { activities[activityType].map((activity, index) =>
-                    <Radio value={index.toString()} key={index}>
+            <Radio.Group
+                name="activtyRadioGroup"
+                space={10}
+                value={currentActivity ? currentActivity : ""}
+                onChange={setCurrentActivity}
+            >
+                { activities[activityType].map(activity =>
+                    <Radio value={activity} key={activity} accessibilityLabel={activity}>
                         {activity}
                     </Radio>
                 ) }
