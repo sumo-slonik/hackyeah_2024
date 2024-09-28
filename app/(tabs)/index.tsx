@@ -1,7 +1,5 @@
-import {Text} from "react-native";
+import { Text } from 'react-native';
 
 export default function Index() {
-    return (
-        <Text>Profil</Text>
-    );
+  return <Text>Profil</Text>;
 }

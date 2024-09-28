@@ -13,23 +13,24 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Profil'
+          title: 'Profil',
         }}
       />
       <Tabs.Screen
         name="solo"
         options={{
-          title: 'Solo'
+          title: 'Solo',
         }}
       />
       <Tabs.Screen
         name="group"
         options={{
-          title: 'Grupowo'
+          title: 'Grupowo',
         }}
       />
     </Tabs>
