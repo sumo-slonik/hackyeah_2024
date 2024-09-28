@@ -14,6 +14,7 @@ import {
 
 import { FontAwesome } from '@expo/vector-icons';
 import { Link } from 'expo-router';
+import { View } from 'react-native';
 
 const styles = {
     box: {
@@ -26,21 +27,10 @@ export default function Index() {
             <VStack space={4} alignItems="right" style={styles.box}>
                 <HStack space={4} justifyContent="left" alignItems="left">
                     <Text>YOU</Text>
-                    <Link href={'/user'}>
-                        <IconButton
-                            icon={<Icon as={FontAwesome} name="arrow-right" />}
-                            _icon={{
-                                color: 'white',
-                                size: 'md',
-                            }}
-                            _hover={{
-                                bg: 'primary.600',
-                            }}
-                            _pressed={{
-                                bg: 'primary.800',
-                            }}
-                            bg="primary.500"
-                        />
+                    <Link href="/user">
+                        <View>
+                            <Text>Go to user</Text>
+                        </View>
                     </Link>
                 </HStack>
                 <Box
@@ -72,23 +62,10 @@ export default function Index() {
                 <Box bg="secondary.500" p={4} rounded="md">
                     <HStack space={4} justifyContent="left" alignItems="center">
                         <Text color="white">GAIN POINTS</Text>
-                        <Link href={'/solo'}>
-                            <IconButton
-                                icon={
-                                    <Icon as={FontAwesome} name="arrow-right" />
-                                }
-                                _icon={{
-                                    color: 'white',
-                                    size: 'md',
-                                }}
-                                _hover={{
-                                    bg: 'primary.600',
-                                }}
-                                _pressed={{
-                                    bg: 'primary.800',
-                                }}
-                                bg="primary.500"
-                            />
+                        <Link href="/solo">
+                            <View>
+                                <Text>Go to solo</Text>
+                            </View>
                         </Link>
                     </HStack>
                 </Box>
