@@ -1,6 +1,6 @@
-import {Center, Heading, VStack} from "native-base";
+import {Button, Center, Heading, HStack, VStack} from "native-base";
 import React, {useEffect, useState} from "react";
-import {useLocalSearchParams} from "expo-router";
+import {router, useLocalSearchParams} from "expo-router";
 
 type props = {
     activity: string,
@@ -20,18 +20,29 @@ export default function SoloActiveMain({activity, beginningTime}: props) {
         if(currentTime && currentTime - parseInt(beginningTime) >= 0) {
             const durationMilisecs = currentTime - parseInt(beginningTime)
             const durationSecs = Math.floor(durationMilisecs / 1000)
-            const durationMins = Math.floor(durationSecs / 60)
-            const durationHours = Math.floor(durationMins / 60)
-            return `${durationHours < 10 ? "0" + durationHours : durationHours}:${durationMins < 10 ? "0" + durationMins : durationMins}:${durationSecs < 10 ? "0" + durationSecs : durationSecs}`;
+            const durationMins = Math.floor(durationSecs / 60) % 60
+            const durationHours = Math.floor(durationMins / 60) % 60
+            return `${durationHours < 10 ? "0" + durationHours  : durationHours}` +
+                `:${durationMins  % 60 < 10 ? "0" + durationMins % 60 : durationMins  % 60}`+
+                `:${durationSecs  % 60 < 10 ? "0" + durationSecs  % 60 : durationSecs % 60}`;
         }
         return undefined
     }
 
+    const handleFinishPress = () => {
+        router.navigate("/(tabs)/solo")
+    }
+
     return (
         <Center height={"100%"}>
-            <VStack space={5} flexDirection="column" width={"80%"} alignItems={"stretch"} justifyContent={"space-between"}>
-                <Heading size='lg' textAlign={"center"}>Current activity: {activity}</Heading>
-                <Heading size='md' textAlign={"center"}>started: {durationString()} ago </Heading>
+            <VStack flexDirection="column" width={"80%"} alignItems={"stretch"} justifyContent={"space-between"} height={"50%"}>
+                <HStack justifyContent="center">
+                    <VStack space={5}>
+                        <Heading size='lg' textAlign={"center"}>Current activity: {activity}</Heading>
+                        { beginningTime ? <Heading size='md' textAlign={"center"}>started: {durationString()} ago </Heading> : null}
+                    </VStack>
+                </HStack>
+                <Button onPress={handleFinishPress}>Finish</Button>
 
             </VStack>
 
