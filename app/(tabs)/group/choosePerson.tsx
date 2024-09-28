@@ -84,7 +84,7 @@ const ChoosePerson = () => {
                                     >
                                         <Image
                                             key={index}
-                                            source={require('../assets/images/planet.jpg')}
+                                            source={require('../../../assets/images/planet.jpg')}
                                             style={styles.markerImage} // Apply styling to resize the image
                                         />
                                     </Marker>
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     },
     map: {
         width: Dimensions.get('window').width - 20,
-        height: Dimensions.get('window').height - 170,
+        height: Dimensions.get('window').height * 0.75,
         marginBottom: 20,
     },
     sliderContainer: {

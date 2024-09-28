@@ -28,11 +28,12 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="group"
+                name="group/index"
                 options={{
                     title: 'Grupowo',
                 }}
             />
+            <Tabs.Screen name="group/choosePerson" options={{ href: null }} />
         </Tabs>
     );
 }

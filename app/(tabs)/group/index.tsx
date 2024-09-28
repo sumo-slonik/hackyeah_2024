@@ -79,8 +79,8 @@ export default function Group() {
 
             {/*<TimelineCalendarScreen />*/}
             <MapPicker title={'Choose Where You Want To Workout'} />
-            {}
-            <Link href="../choosePerson" asChild>
+
+            <Link href="/group/choosePerson" asChild>
                 <Fab
                     renderInPortal={false}
                     shadow={2}
