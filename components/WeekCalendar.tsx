@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert } from 'react-native';
+import { Alert, View } from 'react-native';
 import {
     CalendarProvider,
     WeekCalendar,
@@ -8,6 +8,8 @@ import {
     TimelineEventProps,
     TimelineProps,
 } from 'react-native-calendars';
+import CustomWeekSelector from '@/components/CustomWeekSelector';
+import { ScrollView } from 'native-base';
 
 const getDate = (offset = 0) => {
     const date = new Date();
@@ -169,25 +171,21 @@ const TimelineCalendarScreen = () => {
             showTodayButton
             disabledOpacity={0.6}
         >
-            {/* WeekCalendar to display only day names */}
-            {/*<WeekCalendar*/}
-            {/*  firstDay={1}*/}
-            {/*  markedDates={{*/}
-            {/*    [currentDate]: { selected: true },*/}
-            {/*  }}*/}
-            {/*/>*/}
+            <CustomWeekSelector onDateChanged={onDateChanged} />
 
             {/* TimelineList to display the timeline for the selected day */}
-            <TimelineList
-                events={{ [currentDate]: eventsByDate[currentDate] || [] }}
-                timelineProps={{
-                    ...timelineProps,
-                    numberOfDays: 1,
-                }}
-                showNowIndicator
-                scrollToFirst
-                initialTime={INITIAL_TIME}
-            />
+            <ScrollView style={{ height: 300, flex: 1 }}>
+                <TimelineList
+                    events={{ [currentDate]: eventsByDate[currentDate] || [] }}
+                    timelineProps={{
+                        ...timelineProps,
+                        numberOfDays: 1,
+                    }}
+                    showNowIndicator
+                    scrollToFirst
+                    initialTime={INITIAL_TIME}
+                />
+            </ScrollView>
         </CalendarProvider>
     );
 };
