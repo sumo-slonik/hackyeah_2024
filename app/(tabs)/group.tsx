@@ -1,5 +1,7 @@
+import {Text} from "react-native";
+
 export default function Group() {
   return (
-    <span>Grupowo</span>
+    <Text style={{color: 'white'}}>Grupowo</Text>
   );
 }
