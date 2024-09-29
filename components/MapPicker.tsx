@@ -7,7 +7,7 @@ import MapView, {
     LatLng,
 } from 'react-native-maps';
 import Slider from '@react-native-community/slider';
-import { Colors } from '@/constants/Colors';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 const MapPicker = ({
     title,
@@ -31,7 +31,9 @@ const MapPicker = ({
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={[styles.title, { color: useThemeColor({}, 'text') }]}>
+                {title}
+            </Text>
 
             <MapView
                 style={styles.map}
@@ -88,7 +90,6 @@ const MapPicker = ({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.dark.background,
         padding: 10,
     },
     title: {
