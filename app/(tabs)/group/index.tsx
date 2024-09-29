@@ -42,6 +42,7 @@ export default function Group() {
             <Button
                 style={{ height: 50, width: 100, margin: 10 }}
                 onPress={() => setSelectedActivity(item.name)}
+                key={'button' + item.name}
             >
                 {item.name}
             </Button>
