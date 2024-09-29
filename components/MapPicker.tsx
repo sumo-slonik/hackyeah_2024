@@ -29,11 +29,11 @@ const MapPicker = ({
         setSelectedLocation(coordinate);
     };
 
+    const textColor = useThemeColor({}, 'text');
+
     return (
         <View style={styles.container}>
-            <Text style={[styles.title, { color: useThemeColor({}, 'text') }]}>
-                {title}
-            </Text>
+            <Text style={[styles.title, { color: textColor }]}>{title}</Text>
 
             <MapView
                 style={styles.map}
@@ -68,7 +68,7 @@ const MapPicker = ({
             </MapView>
             {selectedLocation && (
                 <View style={styles.sliderContainer}>
-                    <Text style={styles.radiusText}>
+                    <Text style={[styles.radiusText, { color: textColor }]}>
                         Radius: {radius} meters
                     </Text>
                     <Slider

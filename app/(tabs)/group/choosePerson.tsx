@@ -13,6 +13,7 @@ import { ModalProfil } from '@/components/custom_components/modalProfil';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import MapView, { Circle, Marker } from 'react-native-maps';
 import { foundUsers } from '@/assets/customData/personalData';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 const ChoosePerson = () => {
     const { activity, selectedDays, location, radius } = useLocalSearchParams();
@@ -37,7 +38,9 @@ const ChoosePerson = () => {
                 }}
             />
             <View style={styles.container}>
-                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.title} color={useThemeColor({}, 'text')}>
+                    {title}
+                </Text>
 
                 <MapView
                     style={styles.map}
@@ -127,7 +130,6 @@ const ChoosePerson = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
         padding: 10,
     },
     title: {

@@ -1,4 +1,10 @@
-import { Dimensions, SafeAreaView, Text, View } from 'react-native';
+import {
+    Dimensions,
+    SafeAreaView,
+    Text,
+    useColorScheme,
+    View,
+} from 'react-native';
 import {
     Button,
     Fab,
