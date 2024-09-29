@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, HStack, Text, IconButton, Icon } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useThemeColor } from '@/hooks/useThemeColor';
+import { useRouter } from 'expo-router';
 
 const Header = ({
     title,
@@ -9,13 +11,11 @@ const Header = ({
     title: string;
     onBackPress?: () => void;
 }) => {
+    const router = useRouter();
+
     return (
-        <HStack
-            bg="primary.600"
-            alignItems="center"
-            justifyContent="space-between"
-        >
-            {onBackPress && (
+        <HStack alignItems="center" justifyContent="space-between">
+            {router.canGoBack() && (
                 <IconButton
                     icon={
                         <Icon
@@ -25,10 +25,14 @@ const Header = ({
                             color="white"
                         />
                     }
-                    onPress={onBackPress}
+                    onPress={router.back}
                 />
             )}
-            <Text color="white" fontSize="20" fontWeight="bold">
+            <Text
+                color={useThemeColor({}, 'text')}
+                fontSize="20"
+                fontWeight="bold"
+            >
                 {title}
             </Text>
             <HStack space={2}>

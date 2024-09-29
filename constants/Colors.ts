@@ -18,8 +18,12 @@ export const Colors = {
         white: '#fff',
     },
     dark: {
+        primary: '#FF9E00',
         text: '#ECEDEE',
-        background: '#151718',
+        background: 'rgb(26, 1, 53)',
+        card: '#3C096C',
+        border: 'rgb(39, 39, 41)',
+        notification: 'rgb(255, 69, 58)',
         tint: tintColorDark,
         icon: '#9BA1A6',
         tabIconDefault: '#9BA1A6',

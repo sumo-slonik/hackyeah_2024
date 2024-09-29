@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider, View } from 'native-base';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
 
@@ -34,18 +34,24 @@ export default function RootLayout() {
 
     return (
         <ThemeProvider
-            value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+            value={
+                colorScheme === 'dark'
+                    ? { dark: true, colors: Colors.dark }
+                    : DefaultTheme
+            }
         >
             <NativeBaseProvider>
-                <SafeAreaView style={{ flex: 1 }}>
-                    <Stack>
-                        <Stack.Screen
-                            name="(tabs)"
-                            options={{ headerShown: false }}
-                        />
-                        <Stack.Screen name="+not-found" />
-                    </Stack>
-                </SafeAreaView>
+                <View flex={1} backgroundColor={Colors.dark.background}>
+                    <SafeAreaView style={{ flex: 1 }}>
+                        <Stack>
+                            <Stack.Screen
+                                name="(tabs)"
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen name="+not-found" />
+                        </Stack>
+                    </SafeAreaView>
+                </View>
             </NativeBaseProvider>
         </ThemeProvider>
     );

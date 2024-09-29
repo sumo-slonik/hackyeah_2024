@@ -7,21 +7,33 @@ import MapView, {
     LatLng,
 } from 'react-native-maps';
 import Slider from '@react-native-community/slider';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
-const MapPicker = ({ title }: { title: string }) => {
-    const [selectedLocation, setSelectedLocation] = useState<
-        LatLng | undefined
-    >(undefined);
-    const [radius, setRadius] = useState(1000);
-
+const MapPicker = ({
+    title,
+    selectedLocation,
+    setSelectedLocation,
+    radius,
+    setRadius,
+}: {
+    title: string;
+    selectedLocation?: LatLng;
+    setSelectedLocation: React.Dispatch<
+        React.SetStateAction<LatLng | undefined>
+    >;
+    radius: number;
+    setRadius: React.Dispatch<React.SetStateAction<number>>;
+}) => {
     const handleMapPress = (event: MapPressEvent) => {
         const coordinate = event.nativeEvent.coordinate;
         setSelectedLocation(coordinate);
     };
 
+    const textColor = useThemeColor({}, 'text');
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={[styles.title, { color: textColor }]}>{title}</Text>
 
             <MapView
                 style={styles.map}
@@ -37,6 +49,7 @@ const MapPicker = ({ title }: { title: string }) => {
                 pitchEnabled={true}
                 rotateEnabled={true}
                 showsUserLocation
+                userInterfaceStyle="dark"
             >
                 {selectedLocation && (
                     <>
@@ -55,7 +68,7 @@ const MapPicker = ({ title }: { title: string }) => {
             </MapView>
             {selectedLocation && (
                 <View style={styles.sliderContainer}>
-                    <Text style={styles.radiusText}>
+                    <Text style={[styles.radiusText, { color: textColor }]}>
                         Radius: {radius} meters
                     </Text>
                     <Slider
@@ -77,7 +90,6 @@ const MapPicker = ({ title }: { title: string }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
         padding: 10,
     },
     title: {
