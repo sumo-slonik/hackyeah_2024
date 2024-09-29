@@ -13,8 +13,22 @@ import { useRouter } from 'expo-router';
 import MapView, { Circle, Marker } from 'react-native-maps';
 import { ModalProfil } from '@/components/custom_components/modalProfil';
 import { firstUser } from '@/assets/customData/personalData';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import MapView, { Circle, LatLng, Marker } from 'react-native-maps';
+
+type ChosenOptions = {
+    activity: string;
+    time: string[];
+    location?: LatLng;
+    radius?: number;
+};
 
 const ChoosePerson = () => {
+    const { activity, selectedDays, location, radius } = useLocalSearchParams();
+    const selectedLocation = JSON.parse(location as string);
+    const selectedRadius = JSON.parse(radius as string);
+    console.log('doopa', activity, selectedDays, selectedLocation, radius);
+
     const [modalVisible, setModalVisible] = useState(false);
     const router = useRouter();
 
@@ -106,6 +120,19 @@ const ChoosePerson = () => {
                                 </View>
                             );
                         })}
+                        <Marker coordinate={selectedLocation}>
+                            <Image
+                                key={'yourLocation'}
+                                source={require('../../../assets/images/planet.jpg')}
+                                style={styles.markerImage}
+                            />
+                        </Marker>
+                        <Circle
+                            center={selectedLocation}
+                            radius={selectedRadius}
+                            strokeColor="rgba(0, 255, 255, 0.5)"
+                            fillColor="rgba(0, 255, 255, 0.2)"
+                        />
                     </View>
                 </MapView>
             </View>

@@ -1,7 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -28,12 +27,17 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="group/index"
+                name="group"
                 options={{
                     title: 'Grupowo',
                 }}
             />
-            <Tabs.Screen name="group/choosePerson" options={{ href: null }} />
+            <Tabs.Screen
+                name="solo_active/[...route_params]"
+                options={{
+                    href: null,
+                }}
+            />
             <Tabs.Screen
                 name="user/index"
                 options={{

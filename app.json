@@ -6,14 +6,17 @@
         "orientation": "portrait",
         "icon": "./assets/images/icon.png",
         "scheme": "myapp",
-        "userInterfaceStyle": "automatic",
+        "userInterfaceStyle": "dark",
         "splash": {
             "image": "./assets/images/splash.png",
             "resizeMode": "contain",
             "backgroundColor": "#ffffff"
         },
         "ios": {
-            "supportsTablet": true
+            "supportsTablet": true,
+            "infoPlist": {
+                "NSUserNotificationUsageDescription": "This app uses notifications to keep you informed."
+            }
         },
         "android": {
             "adaptiveIcon": {

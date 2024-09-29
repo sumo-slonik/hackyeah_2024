@@ -16,8 +16,12 @@ export const Colors = {
         tabIconSelected: tintColorLight,
     },
     dark: {
+        primary: '#FF9E00',
         text: '#ECEDEE',
-        background: '#151718',
+        background: '#3C096C',
+        card: '#3C096C',
+        border: 'rgb(39, 39, 41)',
+        notification: 'rgb(255, 69, 58)',
         tint: tintColorDark,
         icon: '#9BA1A6',
         tabIconDefault: '#9BA1A6',
