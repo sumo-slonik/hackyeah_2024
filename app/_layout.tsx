@@ -13,8 +13,6 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { NativeBaseProvider, View } from 'native-base';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
-import { StatusBar } from 'react-native';
-import { Color } from 'ansi-fragments/build/fragments/Color';
 
 SplashScreen.preventAutoHideAsync();
 

@@ -3,14 +3,8 @@ import { Dimensions, StyleSheet, View, Image, Modal } from 'react-native';
 import { Box, Button, ScrollView, Text } from 'native-base';
 import Header from '@/components/Header';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import MapView, { Circle, LatLng, Marker } from 'react-native-maps';
-
-type ChosenOptions = {
-    activity: string;
-    time: string[];
-    location?: LatLng;
-    radius?: number;
-};
+import MapView, { Circle, Marker } from 'react-native-maps';
+import { foundUsers } from '@/assets/customData/personalData';
 
 const ChoosePerson = () => {
     const { activity, selectedDays, location, radius } = useLocalSearchParams();
@@ -22,39 +16,6 @@ const ChoosePerson = () => {
     const router = useRouter();
 
     const title = 'Synergize With As Many People As You Want';
-    const marker_diff = 0.005;
-    const foundPeople = [
-        {
-            name: 'User1',
-            coordinates: {
-                latitude: 50.06465, // Latitude for Kraków
-                longitude: 19.94498, // Longitude for Kraków
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-            },
-            radius: 1000,
-        },
-        {
-            name: 'User2',
-            coordinates: {
-                latitude: 50.06465 + marker_diff,
-                longitude: 19.94498 + marker_diff,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-            },
-            radius: 1000,
-        },
-        {
-            name: 'User3',
-            coordinates: {
-                latitude: 50.06465 - marker_diff,
-                longitude: 19.94498 - marker_diff,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-            },
-            radius: 1000,
-        },
-    ];
 
     return (
         <ScrollView>
@@ -83,7 +44,7 @@ const ChoosePerson = () => {
                     zoomControlEnabled
                 >
                     <View>
-                        {foundPeople.map((person, index) => {
+                        {foundUsers.map((person, index) => {
                             return (
                                 <View>
                                     <Marker
@@ -109,7 +70,7 @@ const ChoosePerson = () => {
                                 </View>
                             );
                         })}
-                        <Marker coordinate={selectedLocation}>
+                        <Marker title="You" coordinate={selectedLocation}>
                             <Image
                                 key={'yourLocation'}
                                 source={require('../../../assets/images/planet.jpg')}

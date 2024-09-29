@@ -7,6 +7,7 @@ import MapView, {
     LatLng,
 } from 'react-native-maps';
 import Slider from '@react-native-community/slider';
+import { Colors } from '@/constants/Colors';
 
 const MapPicker = ({
     title,
@@ -46,6 +47,7 @@ const MapPicker = ({
                 pitchEnabled={true}
                 rotateEnabled={true}
                 showsUserLocation
+                userInterfaceStyle="dark"
             >
                 {selectedLocation && (
                     <>
@@ -86,7 +88,7 @@ const MapPicker = ({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: Colors.dark.background,
         padding: 10,
     },
     title: {
