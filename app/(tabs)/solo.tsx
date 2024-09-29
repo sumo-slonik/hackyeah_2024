@@ -1,7 +1,8 @@
-import { Text } from 'react-native';
-import { UserProfil } from '@/components/custom_components/userProfil';
-import { firstUser } from '@/assets/customData/personalData';
+import {Text} from "react-native";
+import SoloMain from "@/components/solo_page/SoloMain";
 
 export default function Solo() {
-    return <Text>SOLO</Text>;
+  return (
+      <SoloMain />
+  );
 }

@@ -34,6 +34,12 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
+                name="solo_active/[...route_params]"
+                options={{
+                    href: null
+                }}
+            />
+            <Tabs.Screen
                 name="user/index"
                 options={{
                     href: null,
