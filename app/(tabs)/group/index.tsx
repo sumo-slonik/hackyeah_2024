@@ -58,7 +58,7 @@ export default function Group() {
 
     return (
         <ScrollView>
-            <Header title={'MULTI'} />
+            <Header title={'Multi'} />
             <Text
                 style={{
                     fontSize: 24,

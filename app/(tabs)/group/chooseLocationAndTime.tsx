@@ -19,7 +19,7 @@ const chooseLocationAndTime = () => {
 
     return (
         <ScrollView>
-            <Header title={'MULTI'} />
+            <Header title={'Multi'} />
             <WeekCalendar
                 selectedDays={selectedDays}
                 setSelectedDays={setSelectedDays}
