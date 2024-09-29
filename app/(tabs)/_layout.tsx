@@ -17,7 +17,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Profil',
+                    title: 'Profile',
                 }}
             />
             <Tabs.Screen

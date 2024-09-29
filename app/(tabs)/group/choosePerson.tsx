@@ -59,7 +59,7 @@ const ChoosePerson = () => {
     return (
         <ScrollView>
             <Header
-                title={'MULTI'}
+                title={'Multi'}
                 onBackPress={() => {
                     router.back();
                 }}

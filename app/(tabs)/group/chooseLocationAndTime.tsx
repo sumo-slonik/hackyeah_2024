@@ -23,6 +23,7 @@ const chooseLocationAndTime = () => {
             <WeekCalendar
                 selectedDays={selectedDays}
                 setSelectedDays={setSelectedDays}
+                style={{ paddingHorizontal: 4, paddingVertical: 12 }}
             />
 
             <MapPicker

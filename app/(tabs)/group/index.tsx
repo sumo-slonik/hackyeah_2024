@@ -15,6 +15,7 @@ import { Link } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import WeekCalendar from '@/components/WeekCalendar';
 import { LatLng } from 'react-native-maps';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 export default function Group() {
     const [selectedActivity, setSelectedActivity] = useState<string>('');
@@ -52,7 +53,7 @@ export default function Group() {
     return (
         <ScrollView>
             <Header title={'MULTI'} />
-            <Text style={{ fontSize: 24 }}>
+            <Text style={{ fontSize: 24, color: useThemeColor({}, 'text') }}>
                 Hot/Last Activities In Your Area
             </Text>
             <ScrollView horizontal scrollEnabled>

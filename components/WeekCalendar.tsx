@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { HStack, Pressable, Text, Box } from 'native-base';
+import { StyleProp, ViewStyle } from 'react-native';
 
 const WeekCalendar = ({
     selectedDays,
     setSelectedDays,
+    style,
 }: {
     selectedDays: string[];
     setSelectedDays: React.Dispatch<React.SetStateAction<string[]>>;
+    style: StyleProp<ViewStyle>;
 }) => {
     const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -19,7 +22,7 @@ const WeekCalendar = ({
     };
 
     return (
-        <HStack space={2}>
+        <HStack space={2} style={style}>
             {daysOfWeek.map((day) => (
                 <Pressable key={day} onPress={() => toggleDay(day)}>
                     {({ isPressed }) => (
