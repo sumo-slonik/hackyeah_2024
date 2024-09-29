@@ -150,21 +150,6 @@ export default function Index() {
                                     updatePoints={updatePoints}
                                 />
                             </VStack>
-                            <HStack justifyContent="flex-end" width="100%">
-                                <IconButton
-                                    backgroundColor={Colors.light.darkColor2}
-                                    icon={
-                                        <Icon
-                                            as={FontAwesome}
-                                            name={'calendar'}
-                                        />
-                                    }
-                                    _icon={{
-                                        color: Colors.light.lightColor1,
-                                        size: 'md',
-                                    }}
-                                />
-                            </HStack>
                         </Box>
                     </VStack>
 
