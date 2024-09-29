@@ -1,4 +1,4 @@
-import { Radio } from 'native-base';
+import { Radio, Text } from 'native-base';
 
 type props = {
     activityType: 'casual' | 'training';
@@ -7,7 +7,7 @@ type props = {
 };
 
 const activities: Record<'casual' | 'training', string[]> = {
-    casual: ['Running', 'Cycling', 'Rollerblading / Skateboarding', 'Walking'],
+    casual: ['Running', 'Cycling', 'Skateboarding', 'Walking'],
     training: [
         'Running',
         'Golf',
@@ -25,7 +25,7 @@ const activities: Record<'casual' | 'training', string[]> = {
         'Walking',
         'Martial Arts',
         'Motorsports',
-        'Rollerblading / Skateboarding',
+        'Skateboarding',
         'Tennis',
         'Rowing',
         'Skiing',
@@ -50,8 +50,10 @@ export default function ChooseActivity({
                         value={activity}
                         key={activity}
                         accessibilityLabel={activity}
+                        colorScheme={"white"}
                     >
-                        {activity}
+                        <Text color={"#FFFFFF"}>{activity}</Text>
+
                     </Radio>
                 ))}
             </Radio.Group>

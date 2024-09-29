@@ -65,7 +65,7 @@ export default function SoloMain() {
                     justifyContent={'space-between'}
                 >
                     <VStack space={5}>
-                        <Heading size="lg" textAlign={'center'}>
+                        <Heading size="lg" textAlign={'center'} color={"#FFFFFF"}>
                             Choose Activity
                         </Heading>
                         <Button
@@ -114,6 +114,7 @@ export default function SoloMain() {
                                     justifyContent={'flex-end'}
                                 >
                                     <IconButton
+                                        bgColor={"#3D096C"}
                                         padding={5}
                                         borderRadius={25}
                                         icon={

@@ -16,7 +16,7 @@ export const ActivityIcons: Record<'sports', Record<string, string>> = {
         Walking: '🚶‍♂️',
         'Martial Arts': '🥋',
         Motorsports: '🏎️',
-        'Rollerblading / Skateboarding': '🛹',
+        Skateboarding: '🛹',
         Tennis: '🎾',
         Rowing: '🚣‍♂️',
         Skiing: '⛷️',
