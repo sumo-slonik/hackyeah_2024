@@ -5,6 +5,7 @@ import MapView, {
     Circle,
     MapPressEvent,
     LatLng,
+    PROVIDER_GOOGLE, // Import the provider
 } from 'react-native-maps';
 import Slider from '@react-native-community/slider';
 import { useThemeColor } from '@/hooks/useThemeColor';
@@ -36,7 +37,9 @@ const MapPicker = ({
             <Text style={[styles.title, { color: textColor }]}>{title}</Text>
 
             <MapView
-                style={[styles.map, ...styleMap]}
+                provider={PROVIDER_GOOGLE} // Specify Google as the provider
+                style={styles.map} // Use only the map styles here
+                customMapStyle={styleMap} // Apply the custom map styles
                 initialRegion={{
                     latitude: 50.06465, // Latitude for Kraków
                     longitude: 19.94498, // Longitude for Kraków
