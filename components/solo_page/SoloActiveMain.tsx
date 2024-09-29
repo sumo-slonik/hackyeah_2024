@@ -64,11 +64,8 @@ export default function SoloActiveMain({ activity, beginningTime }: props) {
                         ) : null}
                     </VStack>
                 </HStack>
-                <Button
-                    bgColor={"#FF6D00"}
-                    onPress={handleFinishPress}
-                >
-                    <Text color={"#240046"}>Finish</Text>
+                <Button bgColor={'#FF6D00'} onPress={handleFinishPress}>
+                    <Text color={'#240046'}>Finish</Text>
                 </Button>
             </VStack>
         </Center>

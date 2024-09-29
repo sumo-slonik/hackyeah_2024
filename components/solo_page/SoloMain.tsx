@@ -9,7 +9,8 @@ import {
     ScrollView,
     Box,
     Icon,
-    IconButton, Text
+    IconButton,
+    Text,
 } from 'native-base';
 import ChooseActivity from '@/components/solo_page/ChooseActivity';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -65,20 +66,30 @@ export default function SoloMain() {
                     justifyContent={'space-between'}
                 >
                     <VStack space={5}>
-                        <Heading size="lg" textAlign={'center'} color={"#FFFFFF"}>
+                        <Heading
+                            size="lg"
+                            textAlign={'center'}
+                            color={'#FFFFFF'}
+                        >
                             Choose Activity
                         </Heading>
                         <Button
                             onPress={handleTrainingPress}
-                            bgColor={chosenMode === 'training' ? "#FF9E00" : "#FF6D00"}
+                            bgColor={
+                                chosenMode === 'training'
+                                    ? '#FF9E00'
+                                    : '#FF6D00'
+                            }
                         >
-                            <Text color={"#240046"}>Training</Text>
+                            <Text color={'#240046'}>Training</Text>
                         </Button>
                         <Button
                             onPress={handleCasualActivityPress}
-                            bgColor={chosenMode === 'casual' ? "#FF9E00" : "#FF6D00"}
+                            bgColor={
+                                chosenMode === 'casual' ? '#FF9E00' : '#FF6D00'
+                            }
                         >
-                            <Text color={"#240046"}>Casual Activity</Text>
+                            <Text color={'#240046'}>Casual Activity</Text>
                         </Button>
                     </VStack>
                     {chosenMode ? (
@@ -101,7 +112,7 @@ export default function SoloMain() {
                                 justifyContent={'flex-end'}
                             >
                                 <IconButton
-                                    bgColor={"#3D096C"}
+                                    bgColor={'#3D096C'}
                                     padding={5}
                                     borderRadius={25}
                                     icon={

@@ -35,52 +35,67 @@ const activities: Record<'casual' | 'training', string[]> = {
 };
 
 const activitiesGrouped = {
-    "casual" : [
+    casual: [
         ['Running', 'Cycling'],
-        ['Skateboarding', 'Walking']
+        ['Skateboarding', 'Walking'],
     ],
-    "training" : [
+    training: [
         ['Running', 'Golf', 'Gymnastics'],
         ['Ice Hockey', 'Cycling', 'Athletics'],
         ['Handball', 'Football', 'Swimming'],
         ['Rugby', 'Gym', 'Volleyball'],
         ['Ski Jumping', 'Walking', 'Martial Arts'],
         ['Motorsports', 'Skateboarding', 'Tennis'],
-        ['Rowing', 'Skiing']
-    ]
-}
+        ['Rowing', 'Skiing'],
+    ],
+};
 
-const activitiesComponent = (activityType: "casual" | "training", currentActivity: string | undefined, setCurrentActivity: (activity: string) => void) => {
-    return <Center>
-        <VStack>
-            { activitiesGrouped[activityType].map(group => {
-                return <HStack>
-                    { group.map(element =>
-                        <Pressable onPress={() => setCurrentActivity(element)} style={{ margin: 10 }}>
-                            <ActivityCard
-                                fontSize={16}
-                                color={currentActivity === element ? '#6F096C' : '#3C096C'}
-                                fontColor={'#FFFFFF'}
-                                activity={element}
-                                width={128}
-                                height={86}
-                            />
-                        </Pressable>)
-                    }
-                </HStack>
-            }) }
-        </VStack>
-    </Center>
-
-
-}
+const activitiesComponent = (
+    activityType: 'casual' | 'training',
+    currentActivity: string | undefined,
+    setCurrentActivity: (activity: string) => void,
+) => {
+    return (
+        <Center>
+            <VStack>
+                {activitiesGrouped[activityType].map((group) => {
+                    return (
+                        <HStack>
+                            {group.map((element) => (
+                                <Pressable
+                                    onPress={() => setCurrentActivity(element)}
+                                    style={{ margin: 10 }}
+                                >
+                                    <ActivityCard
+                                        fontSize={16}
+                                        color={
+                                            currentActivity === element
+                                                ? '#6F096C'
+                                                : '#3C096C'
+                                        }
+                                        fontColor={'#FFFFFF'}
+                                        activity={element}
+                                        width={128}
+                                        height={86}
+                                    />
+                                </Pressable>
+                            ))}
+                        </HStack>
+                    );
+                })}
+            </VStack>
+        </Center>
+    );
+};
 
 export default function ChooseActivity({
     activityType,
     currentActivity,
     setCurrentActivity,
 }: props) {
-    return (
-        activitiesComponent(activityType, currentActivity, setCurrentActivity)
+    return activitiesComponent(
+        activityType,
+        currentActivity,
+        setCurrentActivity,
     );
 }
