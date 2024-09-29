@@ -58,9 +58,9 @@ export default function Group() {
     };
 
     return (
-        <ScrollView>
+        <ScrollView bgColor={"#240046"}>
             <Header title={'MULTI'} />
-            <Text style={{ fontSize: 24, marginLeft: 20 }}>
+            <Text style={{ fontSize: 24, marginLeft: 20, color: "#FFFFFF" }}>
                 Currently Synergizing for:
             </Text>
             <ScrollView horizontal scrollEnabled style={{ margin: 20 }}>
@@ -68,7 +68,7 @@ export default function Group() {
                     {data.map((item) => <ActivityCard fontSize={24} color={"#3C096C"} fontColor={"#FFFFFF"} activity={item.name} width={128} height={86} />)}
                 </HStack>
             </ScrollView>
-            <Text style={{ fontSize: 24, marginLeft: 20 }}>
+            <Text style={{ fontSize: 24, marginLeft: 20, color: "#FFFFFF" }}>
                 Hot/Last Activities In Your Area
             </Text>
             <ScrollView horizontal scrollEnabled style={{ margin: 20 }}>
@@ -76,7 +76,7 @@ export default function Group() {
                     {data.map((item) => <ActivityCard fontSize={24} color={"#FF6D00"} fontColor={"#240046"} activity={item.name} width={128} height={86} />)}
                 </HStack>
             </ScrollView>
-            <Text style={{ fontSize: 24, marginLeft: 20 }}>
+            <Text style={{ fontSize: 24, marginLeft: 20, color: "#FFFFFF" }}>
                 All Activities
             </Text>
             <Center style={{ marginTop: 20, marginBottom: 20 }}>
