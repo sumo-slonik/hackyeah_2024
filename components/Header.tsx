@@ -1,20 +1,39 @@
 import React from 'react';
-import { Box, HStack, Text, IconButton, Icon } from 'native-base';
+import { Box, HStack, Text, IconButton, Icon, View } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { useRouter } from 'expo-router';
 
 const Header = ({
     title,
-    onBackPress,
+    description,
 }: {
     title: string;
-    onBackPress?: () => void;
+    description?: string;
 }) => {
     const router = useRouter();
 
     return (
         <HStack alignItems="center" justifyContent="space-between">
+            <View style={{ marginBottom: 20 }}>
+                <Text
+                    style={{ marginHorizontal: 18 }}
+                    color={useThemeColor({}, 'text')}
+                    fontSize="30"
+                    fontWeight="bold"
+                >
+                    {title}
+                </Text>
+                {description && (
+                    <Text
+                        style={{ marginHorizontal: 18 }}
+                        color={useThemeColor({}, 'primary')}
+                        fontSize="18"
+                    >
+                        {description}
+                    </Text>
+                )}
+            </View>
             {router.canGoBack() && (
                 <IconButton
                     icon={
@@ -26,28 +45,9 @@ const Header = ({
                         />
                     }
                     onPress={router.back}
+                    style={{ marginHorizontal: 20 }}
                 />
             )}
-            <Text
-                color={useThemeColor({}, 'text')}
-                fontSize="20"
-                fontWeight="bold"
-            >
-                {title}
-            </Text>
-            <HStack space={2}>
-                <IconButton
-                    icon={
-                        <Icon
-                            as={MaterialIcons}
-                            name="menu"
-                            size="md"
-                            color="white"
-                        />
-                    }
-                    onPress={() => console.log('More options pressed')}
-                />
-            </HStack>
         </HStack>
     );
 };

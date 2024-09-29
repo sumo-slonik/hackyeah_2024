@@ -73,7 +73,7 @@ export default function Group() {
 
     return (
         <ScrollView bgColor={'#240046'}>
-            <Header title={'MULTI'} />
+            <Header title={'Multi'} />
             <Text style={{ fontSize: 24, marginLeft: 20, color: '#FFFFFF' }}>
                 Currently Synergizing for:
             </Text>
@@ -97,7 +97,12 @@ export default function Group() {
             <ScrollView horizontal scrollEnabled style={{ margin: 20 }}>
                 <HStack space={5}>
                     {data.map((item) => (
-                        <Link href="/group/chooseLocationAndTime">
+                        <Link
+                            href={{
+                                pathname: '/group/chooseLocationAndTime',
+                                params: { activity: item.name },
+                            }}
+                        >
                             <ActivityCard
                                 fontSize={24}
                                 color={'#FF6D00'}
