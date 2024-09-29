@@ -12,6 +12,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { NativeBaseProvider } from 'native-base';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Colors } from '@/constants/Colors';
 
 SplashScreen.preventAutoHideAsync();
 
