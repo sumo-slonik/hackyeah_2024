@@ -14,11 +14,7 @@ const Header = ({
     const router = useRouter();
 
     return (
-        <HStack
-            bg="primary.600"
-            alignItems="center"
-            justifyContent="space-between"
-        >
+        <HStack alignItems="center" justifyContent="space-between">
             {router.canGoBack() && (
                 <IconButton
                     icon={
