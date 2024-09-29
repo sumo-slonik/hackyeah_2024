@@ -16,7 +16,7 @@ import {
 
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { Link, useRouter } from 'expo-router';
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import { ExpaningRow } from '@/components/custom_components/ExpaningRow';
 import { UpcomingActivity } from '@/components/custom_components/UpcomingActivity';
@@ -38,18 +38,19 @@ export default function Index() {
                     <Header
                         title={'YOU'}
                         rightComponent={
-                            <IconButton
-                                icon={
-                                    <Icon
-                                        as={MaterialIcons}
-                                        name="arrow-back"
-                                        size="md"
-                                        color="white"
-                                    />
-                                }
+                            <TouchableOpacity
                                 onPress={() => router.push('/user')}
-                                style={{ marginHorizontal: 20 }}
-                            />
+                                style={{ paddingRight: 40 }}
+                            >
+                                <Image
+                                    source={require('@/assets/images/eyeButton.png')}
+                                    style={{
+                                        width: 45,
+                                        height: 40,
+                                        resizeMode: 'contain',
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                         }
                     />
 
@@ -92,9 +93,19 @@ export default function Index() {
                                 justifyContent="left"
                                 alignItems="center"
                             >
-                                <Link href="/solo">
-                                    <Text color="white">GAIN more ENERGY</Text>
-                                </Link>
+                                <Text color="white">GAIN more ENERGY</Text>
+
+                                <TouchableOpacity
+                                    onPress={() => router.push('/solo')}
+                                >
+                                    <Image
+                                        source={require('@/assets/images/goToSoloButton.png')}
+                                        style={{
+                                            width: 74,
+                                            height: 25,
+                                        }}
+                                    ></Image>
+                                </TouchableOpacity>
                             </HStack>
                         </Box>
                         <Box bg={Colors.light.darkColor3} p={4} rounded="md">
