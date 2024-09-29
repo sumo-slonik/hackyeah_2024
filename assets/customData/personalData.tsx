@@ -30,6 +30,7 @@ const foundUsers = [
             longitudeDelta: 0.0421,
         },
         radius: 1000,
+        ranking: 70,
     },
     {
         name: 'Marcin',
@@ -48,6 +49,7 @@ const foundUsers = [
             longitudeDelta: 0.0421,
         },
         radius: 1000,
+        ranking: 100,
     },
     {
         name: 'Adaś',
@@ -66,6 +68,7 @@ const foundUsers = [
             longitudeDelta: 0.0421,
         },
         radius: 1000,
+        ranking: 30,
     },
 ];
 

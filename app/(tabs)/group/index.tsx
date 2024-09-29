@@ -12,12 +12,8 @@ import {
     Select,
 } from 'native-base';
 import { useState } from 'react';
-import MapPicker from '@/components/MapPicker';
 import Header from '@/components/Header';
 import { Link } from 'expo-router';
-import { MaterialIcons } from '@expo/vector-icons';
-import WeekCalendar from '@/components/WeekCalendar';
-import { LatLng } from 'react-native-maps';
 import ActivityCard from '@/components/group/ActivityCard';
 import { ActivityIcons } from '@/constants/ActivityIcons';
 
@@ -50,7 +46,7 @@ export default function Group() {
                     fontSize={16}
                     fontColor={'#FFFFFF'}
                     activity={activity}
-                    width={108}
+                    width={173}
                     height={73}
                 />
             ))}
@@ -135,27 +131,27 @@ export default function Group() {
             </Center>
             <ScrollView scrollEnabled style={{ marginLeft: 23 }}>
                 {activitiesRow(
-                    Object.keys(ActivityIcons['sports']).slice(0, 3),
+                    Object.keys(ActivityIcons['sports']).slice(0, 2),
                     10,
                 )}
                 {activitiesRow(
-                    Object.keys(ActivityIcons['sports']).slice(3, 6),
+                    Object.keys(ActivityIcons['sports']).slice(2, 4),
                     10,
                 )}
                 {activitiesRow(
-                    Object.keys(ActivityIcons['sports']).slice(6, 9),
+                    Object.keys(ActivityIcons['sports']).slice(4, 6),
                     10,
                 )}
                 {activitiesRow(
-                    Object.keys(ActivityIcons['sports']).slice(9, 12),
+                    Object.keys(ActivityIcons['sports']).slice(6, 8),
                     10,
                 )}
                 {activitiesRow(
-                    Object.keys(ActivityIcons['sports']).slice(12, 15),
+                    Object.keys(ActivityIcons['sports']).slice(8, 10),
                     10,
                 )}
                 {activitiesRow(
-                    Object.keys(ActivityIcons['sports']).slice(15, 18),
+                    Object.keys(ActivityIcons['sports']).slice(10, 12),
                     10,
                 )}
             </ScrollView>

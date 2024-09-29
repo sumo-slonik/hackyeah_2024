@@ -66,7 +66,11 @@ const ChoosePerson = () => {
                                         <Image
                                             key={index}
                                             source={require('../../../assets/images/planet.jpg')}
-                                            style={styles.markerImage} // Apply styling to resize the image
+                                            style={{
+                                                width: person.ranking,
+                                                height: person.ranking,
+                                                resizeMode: 'contain',
+                                            }} // Apply styling to resize the image
                                         />
                                     </Marker>
                                     <Circle
@@ -147,8 +151,8 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     markerImage: {
-        width: 40, // Set desired width
-        height: 40, // Set desired height
+        width: 40,
+        height: 40,
         resizeMode: 'contain', // Adjust the image to fit the container
     },
     modalOverlay: {
