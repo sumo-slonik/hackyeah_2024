@@ -19,9 +19,6 @@ const ChoosePerson = () => {
     const { activity, selectedDays, location, radius } = useLocalSearchParams();
     const selectedLocation = JSON.parse(location as string);
     const selectedRadius = JSON.parse(radius as string);
-    console.log('doopa', activity, selectedDays, selectedLocation, radius);
-
-    console.log('Czesc Macku :>');
 
     const [modalVisible, setModalVisible] = useState(false);
     const [clickedUser, setClickedUser] = useState(undefined);
@@ -31,12 +28,7 @@ const ChoosePerson = () => {
 
     return (
         <ScrollView>
-            <Header
-                title={'Multi'}
-                onBackPress={() => {
-                    router.back();
-                }}
-            />
+            <Header title={'Multi'} description={activity} />
             <View style={styles.container}>
                 <Text style={styles.title} color={useThemeColor({}, 'text')}>
                     {title}
@@ -55,7 +47,6 @@ const ChoosePerson = () => {
                     pitchEnabled={true}
                     rotateEnabled={true}
                     showsUserLocation
-                    zoomControlEnabled
                 >
                     <View>
                         {foundUsers.map((person, index) => {
@@ -130,7 +121,7 @@ const ChoosePerson = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10,
+        marginHorizontal: 18,
     },
     title: {
         fontSize: 18,
@@ -138,8 +129,8 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     map: {
-        width: Dimensions.get('window').width - 20,
-        height: Dimensions.get('window').height * 0.75,
+        width: Dimensions.get('window').width - 30,
+        height: Dimensions.get('window').height * 0.7,
         marginBottom: 20,
     },
     sliderContainer: {
