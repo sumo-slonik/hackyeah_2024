@@ -59,7 +59,14 @@ export default function Group() {
     return (
         <ScrollView>
             <Header title={'MULTI'} />
-            <Text style={{ fontSize: 24, color: useThemeColor({}, 'text') }}>
+            <Text
+                style={{
+                    fontSize: 24,
+                    color: useThemeColor({}, 'text'),
+                    paddingHorizontal: 4,
+                    paddingVertical: 12,
+                }}
+            >
                 Hot/Last Activities In Your Area
             </Text>
             <ScrollView horizontal scrollEnabled>
