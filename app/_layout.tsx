@@ -13,7 +13,6 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { NativeBaseProvider } from 'native-base';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
