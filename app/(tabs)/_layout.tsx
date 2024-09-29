@@ -10,7 +10,10 @@ export default function TabLayout() {
     return (
         <Tabs
             screenOptions={{
-                tabBarStyle: { backgroundColor: Colors.dark.background },
+                tabBarStyle: {
+                    backgroundColor: Colors[colorScheme ?? 'light'].background,
+                    position: 'absolute', // Add this to ensure it's at the bottom
+                },
                 tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
                 headerShown: false,
             }}
