@@ -14,13 +14,10 @@ import Header from '@/components/Header';
 import { Link } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import WeekCalendar from '@/components/WeekCalendar';
-
-const { width: viewportWidth } = Dimensions.get('window');
+import { LatLng } from 'react-native-maps';
 
 export default function Group() {
     const [selectedActivity, setSelectedActivity] = useState<string>('');
-    const [selectedDate, setSelectedDate] = useState('');
-    const [activeIndex, setActiveIndex] = useState(0);
 
     const data = [
         {
@@ -44,7 +41,7 @@ export default function Group() {
         return (
             <Button
                 style={{ height: 50, width: 100, margin: 10 }}
-                onPress={() => {}}
+                onPress={() => setSelectedActivity(item.name)}
             >
                 {item.name}
             </Button>
@@ -60,15 +57,16 @@ export default function Group() {
             <ScrollView horizontal scrollEnabled>
                 {data.map((item) => renderItem(item))}
             </ScrollView>
-            <Text style={{ fontSize: 24 }}>
-                Choose When You Want To Workout
-            </Text>
 
-            <WeekCalendar />
-
-            <MapPicker title={'Choose Where You Want To Workout'} />
-
-            <Link href="/group/choosePerson" asChild>
+            <Link
+                href={{
+                    pathname: '/group/chooseLocationAndTime',
+                    params: {
+                        activity: selectedActivity,
+                    },
+                }}
+                asChild
+            >
                 <Fab
                     renderInPortal={false}
                     shadow={2}

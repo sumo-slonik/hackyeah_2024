@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { HStack, Pressable, Text, Box } from 'native-base';
 
-const WeekCalendar = () => {
-    const [selectedDays, setSelectedDays] = useState<string[]>([]);
-
+const WeekCalendar = ({
+    selectedDays,
+    setSelectedDays,
+}: {
+    selectedDays: string[];
+    setSelectedDays: React.Dispatch<React.SetStateAction<string[]>>;
+}) => {
     const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     const toggleDay = (day: string) => {

@@ -8,12 +8,21 @@ import MapView, {
 } from 'react-native-maps';
 import Slider from '@react-native-community/slider';
 
-const MapPicker = ({ title }: { title: string }) => {
-    const [selectedLocation, setSelectedLocation] = useState<
-        LatLng | undefined
-    >(undefined);
-    const [radius, setRadius] = useState(1000);
-
+const MapPicker = ({
+    title,
+    selectedLocation,
+    setSelectedLocation,
+    radius,
+    setRadius,
+}: {
+    title: string;
+    selectedLocation?: LatLng;
+    setSelectedLocation: React.Dispatch<
+        React.SetStateAction<LatLng | undefined>
+    >;
+    radius: number;
+    setRadius: React.Dispatch<React.SetStateAction<number>>;
+}) => {
     const handleMapPress = (event: MapPressEvent) => {
         const coordinate = event.nativeEvent.coordinate;
         setSelectedLocation(coordinate);
