@@ -10,11 +10,20 @@ import {
     Center,
     Flex,
     Image,
+    Spacer,
+    ScrollView,
 } from 'native-base';
 
 import { FontAwesome } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import { View } from 'react-native';
+import { Colors } from '@/constants/Colors';
+import {
+    ExpaningRow,
+    expaningRow,
+} from '@/components/custom_components/ExpaningRow';
+import { UpcomingActivity } from '@/components/custom_components/UpcomingActivity';
+import Header from '@/components/Header';
 
 const styles = {
     box: {
@@ -24,145 +33,135 @@ const styles = {
 export default function Index() {
     return (
         <>
-            <VStack space={4} alignItems="right" style={styles.box}>
-                <HStack space={4} justifyContent="left" alignItems="left">
-                    <Text>YOU</Text>
-                    <Link href="/user">
-                        <View>
-                            <Text>Go to user</Text>
-                        </View>
-                    </Link>
-                </HStack>
-                <Box
-                    bg="primary.500"
-                    p={4}
-                    rounded="md"
-                    justifyContent="right"
-                    alignItems="right"
-                >
-                    <Text color="white">YOUR DAILY GOALS</Text>
-                    <Progress
-                        bg="coolGray.100"
-                        _filledTrack={{
-                            bg: 'lime.500',
-                        }}
-                        value={75}
-                        mx="4"
-                    />
-                    <Box
-                        bg="primary.500"
-                        p={4}
-                        rounded="md"
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        <Text color="white">1950/2400</Text>
-                    </Box>
-                </Box>
-                <Box bg="secondary.500" p={4} rounded="md">
-                    <HStack space={4} justifyContent="left" alignItems="center">
-                        <Text color="white">GAIN POINTS</Text>
-                        <Link href="/solo">
-                            <View>
-                                <Text>Go to solo</Text>
-                            </View>
-                        </Link>
-                    </HStack>
-                </Box>
-                <Box bg="secondary.500" p={4} rounded="md">
-                    <Text color="white">Upcoming activities</Text>
-                    <VStack>
-                        <Box bg={'primary.600'} style={styles.box}>
+            <ScrollView>
+                <Box bg={Colors.light.darkBackGround}>
+                    <Header title={'YOU'} />
+
+                    <VStack space={4} alignItems="right" style={styles.box}>
+                        <Box
+                            bg={Colors.light.darkColor3}
+                            p={4}
+                            rounded="md"
+                            justifyContent="right"
+                            alignItems="right"
+                        >
+                            <Text color="white">YOUR DAILY GOALS</Text>
+                            <Progress
+                                bg={Colors.light.darkBackGround}
+                                borderRadius={0}
+                                borderColor={Colors.light.white}
+                                borderWidth={1}
+                                height={3}
+                                _filledTrack={{
+                                    bg: Colors.light.lightColor1,
+                                    borderRadius: 0,
+                                }}
+                                value={75}
+                                mx="4"
+                            />
+                            <Box
+                                p={4}
+                                rounded="md"
+                                justifyContent="left"
+                                alignItems="left"
+                            >
+                                <Text color={Colors.light.lightColor2}>
+                                    1950/2400 ENERGY
+                                </Text>
+                            </Box>
+                        </Box>
+                        <Box bg={Colors.light.darkColor3} p={4} rounded="md">
                             <HStack
                                 space={4}
                                 justifyContent="left"
                                 alignItems="center"
                             >
-                                <Text color="white">Tenis with Iga</Text>
-                                <IconButton
-                                    icon={
-                                        <Icon
-                                            as={FontAwesome}
-                                            name="arrow-right"
-                                        />
-                                    }
-                                    _icon={{
-                                        color: 'white',
-                                        size: 'md',
-                                    }}
-                                    _hover={{
-                                        bg: 'primary.600',
-                                    }}
-                                    _pressed={{
-                                        bg: 'primary.800',
-                                    }}
-                                    bg="primary.500"
-                                />
+                                <Text color="white">GAIN more ENERGY</Text>
+                                <Link href="/solo">
+                                    <View>
+                                        <Text>Go to solo</Text>
+                                    </View>
+                                </Link>
                             </HStack>
                         </Box>
-                        <Box bg={'primary.600'}>
+                        <Box bg={Colors.light.darkColor3} p={4} rounded="md">
+                            <Text color="white">Upcoming activities</Text>
+                            <VStack>
+                                <ExpaningRow title={'Tenis with Iga'}>
+                                    <UpcomingActivity
+                                        dateTime={'21-05-2037'}
+                                        activityType={'Tenis - pro activity'}
+                                    />
+                                </ExpaningRow>
+
+                                <ExpaningRow title={'Football with Robercik'}>
+                                    <UpcomingActivity
+                                        dateTime={'21-05-2037'}
+                                        activityType={'Tenis - pro activity'}
+                                    />
+                                </ExpaningRow>
+
+                                <ExpaningRow title={'Baciata with Ania'}>
+                                    <UpcomingActivity
+                                        dateTime={'21-05-2037'}
+                                        activityType={'Tenis - pro activity'}
+                                    />
+                                </ExpaningRow>
+                            </VStack>
                             <HStack
-                                space={4}
-                                justifyContent="left"
-                                alignItems="center"
+                                justifyContent="flex-end" // Wyrównanie do prawej strony
+                                width="100%" // Zajmuje całą szerokość wiersza
                             >
-                                <Text color="white">Footbal with Robercik</Text>
                                 <IconButton
+                                    backgroundColor={Colors.light.darkColor2}
                                     icon={
                                         <Icon
                                             as={FontAwesome}
-                                            name="arrow-right"
+                                            name={'calendar'}
                                         />
                                     }
                                     _icon={{
-                                        color: 'white',
+                                        color: Colors.light.lightColor1,
                                         size: 'md',
                                     }}
-                                    _hover={{
-                                        bg: 'primary.600',
-                                    }}
-                                    _pressed={{
-                                        bg: 'primary.800',
-                                    }}
-                                    bg="primary.500"
                                 />
                             </HStack>
                         </Box>
                     </VStack>
+
+                    <Box alignItems="center" alignContent="center">
+                        <Box
+                            bg="blue.800"
+                            height={200}
+                            width={300}
+                            position="relative"
+                            borderRadius="md"
+                            overflow="hidden"
+                        >
+                            <Image
+                                source={require('../../assets/images/sample_galaxy.jpeg')}
+                                alt="Opis obrazka"
+                                size="full"
+                                resizeMode="cover"
+                                position="absolute"
+                                top={0}
+                                left={0}
+                                right={0}
+                                bottom={0}
+                            />
+                            <Button
+                                position="absolute"
+                                bottom={2}
+                                right={4}
+                                bg={Colors.light.lightColor1}
+                                _text={{ color: Colors.light.darkBackGround }}
+                            >
+                                Edit
+                            </Button>
+                        </Box>
+                    </Box>
                 </Box>
-            </VStack>
-            <Box alignItems="center" alignContent="center">
-                <Box
-                    bg="blue.800"
-                    height={200}
-                    width={300}
-                    position="relative"
-                    borderRadius="md"
-                    overflow="hidden"
-                >
-                    <Image
-                        source={require('../../assets/images/sample_galaxy.jpeg')}
-                        alt="Opis obrazka"
-                        size="full"
-                        resizeMode="cover"
-                        position="absolute"
-                        top={0}
-                        left={0}
-                        right={0}
-                        bottom={0}
-                    />
-                    <Button
-                        position="absolute"
-                        bottom={2}
-                        right={4}
-                        borderRadius="full"
-                        bg="primary.500"
-                        _text={{ color: 'white' }}
-                    >
-                        Edit
-                    </Button>
-                </Box>
-            </Box>
+            </ScrollView>
         </>
     );
 }
