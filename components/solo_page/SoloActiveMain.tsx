@@ -46,11 +46,19 @@ export default function SoloActiveMain({ activity, beginningTime }: props) {
             >
                 <HStack justifyContent="center">
                     <VStack space={5}>
-                        <Heading size="lg" textAlign={'center'} color={"#FFFFFF"}>
+                        <Heading
+                            size="lg"
+                            textAlign={'center'}
+                            color={'#FFFFFF'}
+                        >
                             Current activity: {activity}
                         </Heading>
                         {beginningTime ? (
-                            <Heading size="md" textAlign={'center'} color={"#FFFFFF"}>
+                            <Heading
+                                size="md"
+                                textAlign={'center'}
+                                color={'#FFFFFF'}
+                            >
                                 started: {durationString()} ago{' '}
                             </Heading>
                         ) : null}

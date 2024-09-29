@@ -50,10 +50,9 @@ export default function ChooseActivity({
                         value={activity}
                         key={activity}
                         accessibilityLabel={activity}
-                        colorScheme={"white"}
+                        colorScheme={'white'}
                     >
-                        <Text color={"#FFFFFF"}>{activity}</Text>
-
+                        <Text color={'#FFFFFF'}>{activity}</Text>
                     </Radio>
                 ))}
             </Radio.Group>

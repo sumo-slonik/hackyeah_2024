@@ -354,3 +354,5 @@ const styleMap = [
 ];
 
 export default MapPicker;
+
+export { styleMap };
