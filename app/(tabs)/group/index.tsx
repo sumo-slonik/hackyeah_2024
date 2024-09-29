@@ -12,12 +12,8 @@ import {
     Select,
 } from 'native-base';
 import { useState } from 'react';
-import MapPicker from '@/components/MapPicker';
 import Header from '@/components/Header';
 import { Link } from 'expo-router';
-import { MaterialIcons } from '@expo/vector-icons';
-import WeekCalendar from '@/components/WeekCalendar';
-import { LatLng } from 'react-native-maps';
 import ActivityCard from '@/components/group/ActivityCard';
 import { ActivityIcons } from '@/constants/ActivityIcons';
 
