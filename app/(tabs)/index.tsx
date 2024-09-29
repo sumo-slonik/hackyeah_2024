@@ -14,17 +14,15 @@ import {
     ScrollView,
 } from 'native-base';
 
-import { FontAwesome } from '@expo/vector-icons';
-import { Link } from 'expo-router';
-import { View } from 'react-native';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import { Link, useRouter } from 'expo-router';
+import { TouchableOpacity, View } from 'react-native';
 import { Colors } from '@/constants/Colors';
-import {
-    ExpaningRow,
-    expaningRow,
-} from '@/components/custom_components/ExpaningRow';
+import { ExpaningRow } from '@/components/custom_components/ExpaningRow';
 import { UpcomingActivity } from '@/components/custom_components/UpcomingActivity';
 import Header from '@/components/Header';
 import { useState } from 'react';
+import React from 'react';
 
 const styles = {
     box: {
@@ -32,6 +30,8 @@ const styles = {
     },
 };
 export default function Index() {
+    const router = useRouter();
+
     const [points, setPoints] = useState(70);
     const updatePoints = () => {
         setPoints((points) => points + 10);
@@ -40,7 +40,24 @@ export default function Index() {
         <>
             <ScrollView>
                 <Box bg={Colors.light.darkBackGround}>
-                    <Header title={'YOU'} />
+                    <Header
+                        title={'YOU'}
+                        rightComponent={
+                            <TouchableOpacity
+                                onPress={() => router.push('/user')}
+                                style={{ paddingRight: 40 }}
+                            >
+                                <Image
+                                    source={require('@/assets/images/eyeButton.png')}
+                                    style={{
+                                        width: 45,
+                                        height: 40,
+                                        resizeMode: 'contain',
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
+                        }
+                    />
 
                     <VStack space={4} alignItems="right" style={styles.box}>
                         <Box
@@ -82,15 +99,37 @@ export default function Index() {
                                 alignItems="center"
                             >
                                 <Text color="white">GAIN more ENERGY</Text>
-                                <Link href="/solo">
-                                    <View>
-                                        <Text>Go to solo</Text>
-                                    </View>
-                                </Link>
+
+                                <TouchableOpacity
+                                    onPress={() => router.push('/solo')}
+                                >
+                                    <Image
+                                        source={require('@/assets/images/goToSoloButton.png')}
+                                        style={{
+                                            width: 74,
+                                            height: 25,
+                                        }}
+                                    ></Image>
+                                </TouchableOpacity>
                             </HStack>
                         </Box>
                         <Box bg={Colors.light.darkColor3} p={4} rounded="md">
-                            <Text color="white">Upcoming activities</Text>
+                            <HStack justifyContent="space-between" width="100%">
+                                <Text color="white">Upcoming activities</Text>
+                                <IconButton
+                                    backgroundColor={Colors.light.darkColor2}
+                                    icon={
+                                        <Icon
+                                            as={FontAwesome}
+                                            name={'calendar'}
+                                        />
+                                    }
+                                    _icon={{
+                                        color: Colors.light.lightColor1,
+                                        size: 'md',
+                                    }}
+                                />
+                            </HStack>
                             <VStack>
                                 <ExpaningRow
                                     title={'Tenis with Iga'}

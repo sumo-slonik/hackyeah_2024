@@ -14,6 +14,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import MapView, { Circle, Marker } from 'react-native-maps';
 import { foundUsers } from '@/assets/customData/personalData';
 import { useThemeColor } from '@/hooks/useThemeColor';
+import { styleMap } from '@/components/MapPicker';
 
 const ChoosePerson = () => {
     const { activity, selectedDays, location, radius } = useLocalSearchParams();
@@ -47,6 +48,7 @@ const ChoosePerson = () => {
                     pitchEnabled={true}
                     rotateEnabled={true}
                     showsUserLocation
+                    customMapStyle={styleMap}
                 >
                     <View>
                         {foundUsers.map((person, index) => {

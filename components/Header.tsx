@@ -3,13 +3,16 @@ import { Box, HStack, Text, IconButton, Icon, View } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { useRouter } from 'expo-router';
+import { Colors } from '@/constants/Colors';
 
 const Header = ({
     title,
     description,
+    rightComponent,
 }: {
     title: string;
     description?: string;
+    rightComponent?: React.ReactNode;
 }) => {
     const router = useRouter();
 
@@ -34,7 +37,7 @@ const Header = ({
                     </Text>
                 )}
             </View>
-            {router.canGoBack() && (
+            {router.canGoBack() && !rightComponent && (
                 <IconButton
                     icon={
                         <Icon
@@ -45,9 +48,13 @@ const Header = ({
                         />
                     }
                     onPress={router.back}
-                    style={{ marginHorizontal: 20 }}
+                    style={{
+                        marginHorizontal: 20,
+                        backgroundColor: Colors.dark.primary,
+                    }}
                 />
             )}
+            {rightComponent && rightComponent}
         </HStack>
     );
 };

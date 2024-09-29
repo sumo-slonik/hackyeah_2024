@@ -2,6 +2,7 @@ import { Box, Center, Progress, VStack } from 'native-base';
 import { RadarChart } from '@salmonco/react-native-radar-chart';
 import { Text, StyleSheet, Image, View } from 'react-native';
 import { HStack } from 'native-base';
+import Header from '@/components/Header';
 
 const MyName = ({ name, age }) => {
     return (
@@ -35,8 +36,10 @@ export const UserProfil = ({ user }) => {
                 alignItems="center"
             >
                 <VStack space="0">
-                    <MyName name={name} age={age}></MyName>
-                    <View style={{ alignItems: 'center' }}>
+                    <Header title={name} description={'' + age + ' years'} />
+                    <View
+                        style={{ alignItems: 'center', marginHorizontal: 20 }}
+                    >
                         <RadarChart
                             scale={0.8}
                             size={300}
