@@ -9,7 +9,7 @@ import MapView, {
 } from 'react-native-maps';
 import Slider from '@react-native-community/slider';
 import { useThemeColor } from '@/hooks/useThemeColor';
-
+import * as Device from 'expo-device';
 const MapPicker = ({
     title,
     selectedLocation,
@@ -37,9 +37,11 @@ const MapPicker = ({
             <Text style={[styles.title, { color: textColor }]}>{title}</Text>
 
             <MapView
-                provider={PROVIDER_GOOGLE} // Specify Google as the provider
-                style={styles.map} // Use only the map styles here
-                customMapStyle={styleMap} // Apply the custom map styles
+                provider={
+                    Device.brand === 'Apple' ? undefined : PROVIDER_GOOGLE
+                }
+                style={styles.map}
+                customMapStyle={styleMap}
                 initialRegion={{
                     latitude: 50.06465, // Latitude for Kraków
                     longitude: 19.94498, // Longitude for Kraków
