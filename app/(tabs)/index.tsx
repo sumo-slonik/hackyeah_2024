@@ -21,6 +21,7 @@ import { Colors } from '@/constants/Colors';
 import { ExpaningRow } from '@/components/custom_components/ExpaningRow';
 import { UpcomingActivity } from '@/components/custom_components/UpcomingActivity';
 import Header from '@/components/Header';
+import { useState } from 'react';
 import React from 'react';
 
 const styles = {
@@ -31,6 +32,10 @@ const styles = {
 export default function Index() {
     const router = useRouter();
 
+    const [points, setPoints] = useState(70);
+    const updatePoints = () => {
+        setPoints((points) => points + 10);
+    };
     return (
         <>
             <ScrollView>
@@ -73,7 +78,7 @@ export default function Index() {
                                     bg: Colors.light.lightColor1,
                                     borderRadius: 0,
                                 }}
-                                value={75}
+                                value={points}
                                 mx="4"
                             />
                             <Box
@@ -83,7 +88,7 @@ export default function Index() {
                                 alignItems="left"
                             >
                                 <Text color={Colors.light.lightColor2}>
-                                    1950/2400 ENERGY
+                                    {(points / 100) * 2400}/2400 ENERGY
                                 </Text>
                             </Box>
                         </Box>
@@ -126,27 +131,40 @@ export default function Index() {
                                 />
                             </HStack>
                             <VStack>
-                                <ExpaningRow title={'Tenis with Iga'}>
-                                    <UpcomingActivity
-                                        dateTime={'21-05-2037'}
-                                        activityType={'Tenis - pro activity'}
-                                    />
-                                </ExpaningRow>
-
-                                <ExpaningRow title={'Football with Robercik'}>
-                                    <UpcomingActivity
-                                        dateTime={'21-05-2037'}
-                                        activityType={'Tenis - pro activity'}
-                                    />
-                                </ExpaningRow>
-
-                                <ExpaningRow title={'Baciata with Ania'}>
-                                    <UpcomingActivity
-                                        dateTime={'21-05-2037'}
-                                        activityType={'Tenis - pro activity'}
-                                    />
-                                </ExpaningRow>
+                                <ExpaningRow
+                                    title={'Tenis with Iga'}
+                                    dateTime={'21-05-2037'}
+                                    activityType={'Tenis - pro activity'}
+                                    updatePoints={updatePoints}
+                                />
+                                <ExpaningRow
+                                    title={'Football with Robercik'}
+                                    dateTime={'21-05-2037'}
+                                    activityType={'Tenis - pro activity'}
+                                    updatePoints={updatePoints}
+                                />
+                                <ExpaningRow
+                                    title={'Baciata with Ania'}
+                                    dateTime={'21-05-2037'}
+                                    activityType={'Tenis - pro activity'}
+                                    updatePoints={updatePoints}
+                                />
                             </VStack>
+                            <HStack justifyContent="flex-end" width="100%">
+                                <IconButton
+                                    backgroundColor={Colors.light.darkColor2}
+                                    icon={
+                                        <Icon
+                                            as={FontAwesome}
+                                            name={'calendar'}
+                                        />
+                                    }
+                                    _icon={{
+                                        color: Colors.light.lightColor1,
+                                        size: 'md',
+                                    }}
+                                />
+                            </HStack>
                         </Box>
                     </VStack>
 
