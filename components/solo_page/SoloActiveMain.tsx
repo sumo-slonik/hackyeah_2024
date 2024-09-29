@@ -1,4 +1,4 @@
-import { Button, Center, Heading, HStack, VStack } from 'native-base';
+import { Button, Center, Heading, HStack, Text, VStack } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
 
@@ -64,7 +64,12 @@ export default function SoloActiveMain({ activity, beginningTime }: props) {
                         ) : null}
                     </VStack>
                 </HStack>
-                <Button onPress={handleFinishPress}>Finish</Button>
+                <Button
+                    bgColor={"#FF6D00"}
+                    onPress={handleFinishPress}
+                >
+                    <Text color={"#240046"}>Finish</Text>
+                </Button>
             </VStack>
         </Center>
     );
