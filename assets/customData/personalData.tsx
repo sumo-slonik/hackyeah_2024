@@ -17,9 +17,9 @@ const foundUsers = [
         name: 'Jakub',
         age: '24',
         data: [
-            { label: 'punctuality', value: 30 },
-            { label: 'general atmosphere', value: 55 },
-            { label: 'hygiene', value: 60 },
+            { label: 'punctuality', value: 20 },
+            { label: 'general atmosphere', value: 10 },
+            { label: 'hygiene', value: 30 },
             { label: 'compliance with the description', value: 70 },
         ],
         photo: require('@/assets/images/samples_galaxy.jpeg'),
@@ -38,7 +38,7 @@ const foundUsers = [
             { label: 'punctuality', value: 30 },
             { label: 'general atmosphere', value: 55 },
             { label: 'hygiene', value: 60 },
-            { label: 'compliance with the description', value: 70 },
+            { label: 'compliance with the description', value: 20 },
         ],
         photo: require('@/assets/images/samples_galaxy.jpeg'),
         coordinates: {
@@ -53,9 +53,9 @@ const foundUsers = [
         name: 'Adaś',
         age: '24',
         data: [
-            { label: 'punctuality', value: 30 },
+            { label: 'punctuality', value: 23 },
             { label: 'general atmosphere', value: 55 },
-            { label: 'hygiene', value: 60 },
+            { label: 'hygiene', value: 10 },
             { label: 'compliance with the description', value: 70 },
         ],
         photo: require('@/assets/images/samples_galaxy.jpeg'),
@@ -69,5 +69,4 @@ const foundUsers = [
     },
 ];
 
-export default firstUser;
-export { foundUsers };
+export { foundUsers, firstUser };

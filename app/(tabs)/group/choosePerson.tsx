@@ -10,7 +10,6 @@ import {
 import { Box, Button, ScrollView, Text } from 'native-base';
 import Header from '@/components/Header';
 import { ModalProfil } from '@/components/custom_components/modalProfil';
-import { firstUser } from '@/assets/customData/personalData';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import MapView, { Circle, Marker } from 'react-native-maps';
 import { foundUsers } from '@/assets/customData/personalData';
@@ -24,6 +23,7 @@ const ChoosePerson = () => {
     console.log('Czesc Macku :>');
 
     const [modalVisible, setModalVisible] = useState(false);
+    const [clickedUser, setClickedUser] = useState(undefined);
     const router = useRouter();
 
     const title = 'Synergize With As Many People As You Want';
@@ -64,6 +64,7 @@ const ChoosePerson = () => {
                                         coordinate={person.coordinates}
                                         onPress={() => {
                                             setModalVisible(true);
+                                            setClickedUser(person);
                                         }}
                                     >
                                         <Image
@@ -112,8 +113,11 @@ const ChoosePerson = () => {
                     ></View>
                 </TouchableWithoutFeedback>
                 <ModalProfil
-                    user={firstUser}
-                    onItemPress={setModalVisible}
+                    user={clickedUser}
+                    onItemPress={() => {
+                        setModalVisible(false);
+                        setClickedUser(undefined);
+                    }}
                 ></ModalProfil>
             </Modal>
         </ScrollView>
