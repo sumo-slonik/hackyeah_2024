@@ -3,5 +3,6 @@ import SoloMain from "@/components/solo_page/SoloMain";
 
 export default function Solo() {
   return (
-    <SoloMain />
+      <SoloMain />
   );
+}
