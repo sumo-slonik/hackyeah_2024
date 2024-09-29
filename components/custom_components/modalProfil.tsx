@@ -59,8 +59,8 @@ export const ModalProfil = ({ user, onItemPress }) => {
         <Center w="100%" h="85%" position="absolute" bottom={0}>
             <Box
                 bg="#300559"
-                h="100%"
                 w="100%"
+                h="100%"
                 maxW="500"
                 alignSelf="center"
                 alignItems="center"
