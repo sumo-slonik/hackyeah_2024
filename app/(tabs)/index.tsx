@@ -150,11 +150,15 @@ export default function Index() {
                         </Box>
                     </VStack>
 
-                    <Box alignItems="center" alignContent="center">
+                    <Box
+                        alignItems="center"
+                        alignContent="center"
+                        paddingBottom={4}
+                    >
                         <Box
                             bg="blue.800"
-                            height={200}
-                            width={300}
+                            height={300}
+                            width={400}
                             position="relative"
                             borderRadius="md"
                             overflow="hidden"
@@ -164,11 +168,6 @@ export default function Index() {
                                 alt="Opis obrazka"
                                 size="full"
                                 resizeMode="cover"
-                                position="absolute"
-                                top={0}
-                                left={0}
-                                right={0}
-                                bottom={0}
                             />
                             <Button
                                 position="absolute"

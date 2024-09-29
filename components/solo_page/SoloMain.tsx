@@ -15,6 +15,7 @@ import {
 import ChooseActivity from '@/components/solo_page/ChooseActivity';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
+import Header from '@/components/Header';
 
 export default function SoloMain() {
     const [chosenMode, setChosenMode] = React.useState<
@@ -58,6 +59,7 @@ export default function SoloMain() {
 
     return (
         <>
+            <Header title="Choose Activity" />
             <Center height={'100%'}>
                 <VStack
                     flexDirection="column"
@@ -66,13 +68,6 @@ export default function SoloMain() {
                     justifyContent={'space-between'}
                 >
                     <VStack space={5}>
-                        <Heading
-                            size="lg"
-                            textAlign={'center'}
-                            color={'#FFFFFF'}
-                        >
-                            Choose Activity
-                        </Heading>
                         <Button
                             onPress={handleTrainingPress}
                             bgColor={
