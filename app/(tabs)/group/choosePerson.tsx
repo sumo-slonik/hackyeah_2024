@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, View, Image, Modal } from 'react-native';
+import {
+    Dimensions,
+    StyleSheet,
+    View,
+    Image,
+    Modal,
+    TouchableWithoutFeedback,
+} from 'react-native';
 import { Box, Button, ScrollView, Text } from 'native-base';
 import Header from '@/components/Header';
 import { useRouter } from 'expo-router';
 import MapView, { Circle, Marker } from 'react-native-maps';
+import { ModalProfil } from '@/components/custom_components/modalProfil';
+import { firstUser } from '@/assets/customData/personalData';
 
 const ChoosePerson = () => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -102,19 +111,22 @@ const ChoosePerson = () => {
             </View>
 
             <Modal
-                animationType="none"
+                animationType="slide"
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => setModalVisible(false)}
             >
-                <View style={styles.modalOverlay}>
-                    <Box style={styles.modalContent}>
-                        <Text>This is a bottom modal!</Text>
-                        <Button onPress={() => setModalVisible(false)}>
-                            Close
-                        </Button>
-                    </Box>
-                </View>
+                <TouchableWithoutFeedback
+                    onPress={() => setModalVisible(false)}
+                >
+                    <View
+                        style={{ backgroundColor: 'transparent', flex: 1 }}
+                    ></View>
+                </TouchableWithoutFeedback>
+                <ModalProfil
+                    user={firstUser}
+                    onItemPress={setModalVisible}
+                ></ModalProfil>
             </Modal>
         </ScrollView>
     );
