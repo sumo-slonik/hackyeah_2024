@@ -9,8 +9,6 @@ import {
 } from 'react-native';
 import { Box, Button, ScrollView, Text } from 'native-base';
 import Header from '@/components/Header';
-import { useRouter } from 'expo-router';
-import MapView, { Circle, Marker } from 'react-native-maps';
 import { ModalProfil } from '@/components/custom_components/modalProfil';
 import { firstUser } from '@/assets/customData/personalData';
 import { useLocalSearchParams, useRouter } from 'expo-router';
