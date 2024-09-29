@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HStack, Pressable, Text, Box } from 'native-base';
 import { StyleProp, ViewStyle } from 'react-native';
+import { Colors } from '@/constants/Colors';
 
 const WeekCalendar = ({
     selectedDays,
@@ -29,9 +30,15 @@ const WeekCalendar = ({
                         <Box
                             bg={
                                 selectedDays.includes(day)
-                                    ? 'primary.600'
-                                    : 'gray.200'
+                                    ? Colors.dark.primary
+                                    : Colors.dark.background
                             }
+                            borderColor={
+                                selectedDays.includes(day)
+                                    ? Colors.dark.background
+                                    : Colors.dark.primary
+                            }
+                            borderWidth={2}
                             px={3}
                             py={1}
                             borderRadius="full"
@@ -40,8 +47,8 @@ const WeekCalendar = ({
                             <Text
                                 color={
                                     selectedDays.includes(day)
-                                        ? 'white'
-                                        : 'black'
+                                        ? 'black'
+                                        : 'white'
                                 }
                             >
                                 {day}

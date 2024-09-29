@@ -53,22 +53,8 @@ export default function Group() {
         </HStack>
     );
 
-    const renderItem = (item: { name: any }) => {
-        return (
-            <Link href="/group/chooseLocationAndTime">
-                <Button
-                    style={{ height: 50, width: 100, margin: 10 }}
-                    onPress={() => setSelectedActivity(item.name)}
-                    key={'button' + item.name}
-                >
-                    {item.name}
-                </Button>
-            </Link>
-        );
-    };
-
     return (
-        <ScrollView bgColor={'#240046'}>
+        <ScrollView bgColor={'#240046'} style={{ flex: 1 }}>
             <Header title={'Multi'} />
             <Text style={{ fontSize: 24, marginLeft: 20, color: '#FFFFFF' }}>
                 Currently Synergizing for:
