@@ -8,6 +8,7 @@ const firstUser = {
         { label: 'compliance with the description', value: 70 },
     ],
     photo: require('@/assets/images/samples_galaxy.jpeg'),
+    level: 'Begginer',
 };
 
 const marker_diff = 0.005;
