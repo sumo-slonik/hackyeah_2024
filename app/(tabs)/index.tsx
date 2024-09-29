@@ -14,16 +14,14 @@ import {
     ScrollView,
 } from 'native-base';
 
-import { FontAwesome } from '@expo/vector-icons';
-import { Link } from 'expo-router';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import { Link, useRouter } from 'expo-router';
 import { View } from 'react-native';
 import { Colors } from '@/constants/Colors';
-import {
-    ExpaningRow,
-    expaningRow,
-} from '@/components/custom_components/ExpaningRow';
+import { ExpaningRow } from '@/components/custom_components/ExpaningRow';
 import { UpcomingActivity } from '@/components/custom_components/UpcomingActivity';
 import Header from '@/components/Header';
+import React from 'react';
 
 const styles = {
     box: {
@@ -31,11 +29,29 @@ const styles = {
     },
 };
 export default function Index() {
+    const router = useRouter();
+
     return (
         <>
             <ScrollView>
                 <Box bg={Colors.light.darkBackGround}>
-                    <Header title={'YOU'} />
+                    <Header
+                        title={'YOU'}
+                        rightComponent={
+                            <IconButton
+                                icon={
+                                    <Icon
+                                        as={MaterialIcons}
+                                        name="arrow-back"
+                                        size="md"
+                                        color="white"
+                                    />
+                                }
+                                onPress={() => router.push('/user')}
+                                style={{ marginHorizontal: 20 }}
+                            />
+                        }
+                    />
 
                     <VStack space={4} alignItems="right" style={styles.box}>
                         <Box
@@ -76,11 +92,8 @@ export default function Index() {
                                 justifyContent="left"
                                 alignItems="center"
                             >
-                                <Text color="white">GAIN more ENERGY</Text>
                                 <Link href="/solo">
-                                    <View>
-                                        <Text>Go to solo</Text>
-                                    </View>
+                                    <Text color="white">GAIN more ENERGY</Text>
                                 </Link>
                             </HStack>
                         </Box>

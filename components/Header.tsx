@@ -7,9 +7,11 @@ import { useRouter } from 'expo-router';
 const Header = ({
     title,
     description,
+    rightComponent,
 }: {
     title: string;
     description?: string;
+    rightComponent?: React.ReactNode;
 }) => {
     const router = useRouter();
 
@@ -48,6 +50,7 @@ const Header = ({
                     style={{ marginHorizontal: 20 }}
                 />
             )}
+            {rightComponent && rightComponent}
         </HStack>
     );
 };
