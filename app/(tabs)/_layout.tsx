@@ -10,10 +10,11 @@ export default function TabLayout() {
     return (
         <Tabs
             screenOptions={{
-                tabBarStyle: { backgroundColor: Colors.dark.background },
+                tabBarStyle: { backgroundColor: 'transparent' },
                 tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
                 headerShown: false,
             }}
+            sceneContainerStyle={{ backgroundColor: 'transparent' }}
         >
             <Tabs.Screen
                 name="index"

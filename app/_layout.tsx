@@ -5,7 +5,6 @@ import {
 } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 
@@ -13,8 +12,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { NativeBaseProvider, View } from 'native-base';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
-
-SplashScreen.preventAutoHideAsync();
+import SplashScreen from 'react-native-splash-screen';
 
 export default function RootLayout() {
     const colorScheme = useColorScheme();
@@ -23,10 +21,10 @@ export default function RootLayout() {
     });
 
     useEffect(() => {
-        if (loaded) {
-            SplashScreen.hideAsync();
+        if (loaded && SplashScreen) {
+            SplashScreen.hide();
         }
-    }, [loaded]);
+    }, [loaded, SplashScreen]);
 
     if (!loaded) {
         return null;
