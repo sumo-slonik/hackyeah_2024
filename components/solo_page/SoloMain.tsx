@@ -10,6 +10,7 @@ import {
     Box,
     Icon,
     IconButton,
+    Text,
 } from 'native-base';
 import ChooseActivity from '@/components/solo_page/ChooseActivity';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -65,38 +66,36 @@ export default function SoloMain() {
                     justifyContent={'space-between'}
                 >
                     <VStack space={5}>
-                        <Heading size="lg" textAlign={'center'} color={"#FFFFFF"}>
+                        <Heading
+                            size="lg"
+                            textAlign={'center'}
+                            color={'#FFFFFF'}
+                        >
                             Choose Activity
                         </Heading>
                         <Button
                             onPress={handleTrainingPress}
-                            colorScheme={
+                            bgColor={
                                 chosenMode === 'training'
-                                    ? 'secondary'
-                                    : 'primary'
+                                    ? '#FF9E00'
+                                    : '#FF6D00'
                             }
                         >
-                            Training
+                            <Text color={'#240046'}>Training</Text>
                         </Button>
                         <Button
                             onPress={handleCasualActivityPress}
-                            colorScheme={
-                                chosenMode === 'casual'
-                                    ? 'secondary'
-                                    : 'primary'
+                            bgColor={
+                                chosenMode === 'casual' ? '#FF9E00' : '#FF6D00'
                             }
                         >
-                            Casual Activity
+                            <Text color={'#240046'}>Casual Activity</Text>
                         </Button>
                     </VStack>
                     {chosenMode ? (
                         <>
-                            <VStack height={'60%'} marginTop={10}>
-                                <Box
-                                    borderColor="coolGray.200"
-                                    borderWidth="1"
-                                    padding={2}
-                                >
+                            <Center height={'60%'} marginTop={10}>
+                                <ScrollView horizontal>
                                     <ScrollView>
                                         <ChooseActivity
                                             activityType={chosenMode}
@@ -106,29 +105,27 @@ export default function SoloMain() {
                                             }
                                         />
                                     </ScrollView>
-                                </Box>
+                                </ScrollView>
+                            </Center>
+                            <VStack
+                                flexDirection={'row'}
+                                justifyContent={'flex-end'}
+                            >
+                                <IconButton
+                                    bgColor={'#3D096C'}
+                                    padding={5}
+                                    borderRadius={25}
+                                    icon={
+                                        <Icon
+                                            as={Ionicons}
+                                            name="arrow-forward-outline"
+                                            size="sm"
+                                        />
+                                    }
+                                    isDisabled={!chosenActivity}
+                                    onPress={handleSubmitActivity}
+                                />
                             </VStack>
-                            {chosenActivity ? (
-                                <VStack
-                                    flexDirection={'row'}
-                                    justifyContent={'flex-end'}
-                                >
-                                    <IconButton
-                                        bgColor={"#3D096C"}
-                                        padding={5}
-                                        borderRadius={25}
-                                        icon={
-                                            <Icon
-                                                as={Ionicons}
-                                                name="arrow-forward-outline"
-                                                size="sm"
-                                            />
-                                        }
-                                        isDisabled={!chosenActivity}
-                                        onPress={handleSubmitActivity}
-                                    />
-                                </VStack>
-                            ) : null}
                         </>
                     ) : null}
                 </VStack>

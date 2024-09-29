@@ -109,7 +109,22 @@ export default function Index() {
                             </HStack>
                         </Box>
                         <Box bg={Colors.light.darkColor3} p={4} rounded="md">
-                            <Text color="white">Upcoming activities</Text>
+                            <HStack justifyContent="space-between" width="100%">
+                                <Text color="white">Upcoming activities</Text>
+                                <IconButton
+                                    backgroundColor={Colors.light.darkColor2}
+                                    icon={
+                                        <Icon
+                                            as={FontAwesome}
+                                            name={'calendar'}
+                                        />
+                                    }
+                                    _icon={{
+                                        color: Colors.light.lightColor1,
+                                        size: 'md',
+                                    }}
+                                />
+                            </HStack>
                             <VStack>
                                 <ExpaningRow title={'Tenis with Iga'}>
                                     <UpcomingActivity
@@ -132,24 +147,6 @@ export default function Index() {
                                     />
                                 </ExpaningRow>
                             </VStack>
-                            <HStack
-                                justifyContent="flex-end" // Wyrównanie do prawej strony
-                                width="100%" // Zajmuje całą szerokość wiersza
-                            >
-                                <IconButton
-                                    backgroundColor={Colors.light.darkColor2}
-                                    icon={
-                                        <Icon
-                                            as={FontAwesome}
-                                            name={'calendar'}
-                                        />
-                                    }
-                                    _icon={{
-                                        color: Colors.light.lightColor1,
-                                        size: 'md',
-                                    }}
-                                />
-                            </HStack>
                         </Box>
                     </VStack>
 
