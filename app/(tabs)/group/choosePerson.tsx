@@ -12,6 +12,8 @@ const ChoosePerson = () => {
     const selectedRadius = JSON.parse(radius as string);
     console.log('doopa', activity, selectedDays, selectedLocation, radius);
 
+    console.log('Czesc Macku :>');
+
     const [modalVisible, setModalVisible] = useState(false);
     const router = useRouter();
 
